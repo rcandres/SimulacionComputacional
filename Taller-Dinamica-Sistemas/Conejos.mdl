@@ -1,0 +1,128 @@
+{UTF-8}
+Conejos= INTEG (
+	Conejos+(Nacimientos-Muertes),
+		10)
+	~	Conejos
+	~		|
+
+Efecto de hacinamiento=
+	5*(Conejos/Poblacion normal de conejos) -3*(Conejos/(Poblacion normal de conejos+1))
+	~	Dmnl
+	~		|
+
+Flujo neto=
+	Nacimientos-Muertes
+	~	Conejos
+	~		|
+
+Fraccion de muertes=
+	Fraccion normal de muertes*Efecto de hacinamiento
+	~	1/Month
+	~		|
+
+Fraccion nacimientos=
+	0.5
+	~	1/Month
+	~		|
+
+Fraccion normal de muertes=
+	0.5/3
+	~	1/Month
+	~		|
+
+Muertes=
+	Fraccion de muertes*Conejos
+	~	Conejos/Month
+	~		|
+
+Nacimientos=
+	Fraccion nacimientos*Conejos
+	~	Conejos/Month
+	~		|
+
+Poblacion normal de conejos=
+	500
+	~	Conejos
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,Conejos,298,179,40,20,3,3,0,0,0,0,0,0
+12,2,48,100,180,10,8,0,3,0,0,-1,0,0,0
+1,3,5,1,4,0,0,22,0,0,0,-1--1--1,,1|(224,180)|
+1,4,5,2,100,0,0,22,0,0,0,-1--1--1,,1|(144,180)|
+11,5,48,184,180,6,8,34,3,0,0,1,0,0,0
+10,6,Nacimientos,184,199,40,11,40,3,0,0,-1,0,0,0
+12,7,48,438,179,10,8,0,3,0,0,-1,0,0,0
+1,8,10,7,4,0,0,22,0,0,0,-1--1--1,,1|(408,179)|
+1,9,10,1,100,0,0,22,0,0,0,-1--1--1,,1|(357,179)|
+11,10,48,383,179,6,8,34,3,0,0,1,0,0,0
+10,11,Muertes,383,198,27,11,40,3,0,0,-1,0,0,0
+10,12,Fraccion nacimientos,69,289,37,19,8,3,0,0,0,0,0,0
+10,13,Efecto de hacinamiento,315,305,42,19,8,3,0,0,0,0,0,0
+10,14,Fraccion de muertes,514,276,39,19,8,3,0,0,0,0,0,0
+10,15,Poblacion normal de conejos,222,414,56,19,8,3,0,0,0,0,0,0
+10,16,Fraccion normal de muertes,505,404,62,19,8,3,0,0,0,0,0,0
+10,17,Flujo neto,265,67,33,11,8,3,0,0,0,0,0,0
+1,18,1,6,1,0,0,0,0,64,0,-1--1--1,,1|(232,229)|
+1,19,1,11,1,0,0,0,0,64,0,-1--1--1,,1|(338,237)|
+1,20,6,17,1,0,0,0,0,64,0,-1--1--1,,1|(147,99)|
+1,21,11,17,1,0,0,0,0,64,0,-1--1--1,,1|(394,75)|
+1,22,12,6,1,0,0,0,0,64,0,-1--1--1,,1|(78,227)|
+1,23,15,13,1,0,0,0,0,64,0,-1--1--1,,1|(221,342)|
+1,24,1,13,1,0,0,0,0,64,0,-1--1--1,,1|(286,253)|
+1,25,13,14,1,0,0,0,0,64,0,-1--1--1,,1|(426,326)|
+1,26,16,14,1,0,0,0,0,64,0,-1--1--1,,1|(579,358)|
+1,27,14,11,1,0,0,0,0,64,0,-1--1--1,,1|(486,217)|
+///---\\\
+:L<%^E!@
+1:Current3.vdf
+1:Current.vdf
+9:Current3
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:0,
+34:0,
+4:Time
+5:Conejos
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+42:1
+24:0
+25:100
+26:100

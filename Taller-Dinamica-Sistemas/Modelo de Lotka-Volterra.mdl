@@ -1,0 +1,156 @@
+{UTF-8}
+depredador nacido por presa=
+	0.005
+	~	1/(year*presas)
+	~		|
+
+DEPREDADORES= INTEG (
+	DEPREDADORES +  (tasa nacimientos depredadores - tasa muertes depredadores),
+		4)
+	~	depredadores
+	~		|
+
+fracción muertes depredadores=
+	0.8
+	~	1/year
+	~		|
+
+presa capturada por depredador=
+	0.018
+	~	1/(year*depredadores)
+	~		|
+
+fracción nacimientos depredadores=
+	depredador nacido por presa*PRESAS
+	~	1/year
+	~		|
+
+PRESAS= INTEG (
+	PRESAS + (tasa nacimientos presas - tasa muertes presas),
+		30)
+	~	presas
+	~		|
+
+fracción muertes presas=
+	DEPREDADORES*presa capturada por depredador
+	~	1/year
+	~		|
+
+fracción nacimientos presas=
+	0.4
+	~	1/year
+	~		|
+
+tasa muertes depredadores=
+	DEPREDADORES*fracción muertes depredadores
+	~	depredadores/year
+	~		|
+
+tasa muertes presas=
+	fracción muertes presas * PRESAS
+	~	presas/year
+	~		|
+
+tasa nacimientos depredadores=
+	DEPREDADORES*fracción nacimientos depredadores
+	~	depredadores/year
+	~		|
+
+tasa nacimientos presas=
+	PRESAS*fracción nacimientos presas
+	~	presas/year
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP 
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 0.2
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,PRESAS,414,149,40,20,3,3,0,6,0,0,0,0,-1--1--1,255-255-128,|12||255-0-255
+12,2,48,140,152,10,8,0,3,0,0,-1,0,0,0
+1,3,5,1,4,0,0,22,0,0,0,-1--1--1,,1|(321,152)|
+1,4,5,2,100,0,0,22,0,0,0,-1--1--1,,1|(203,152)|
+11,5,48,262,152,6,8,34,3,0,0,1,0,0,0
+10,6,tasa nacimientos presas,262,178,74,18,40,131,0,2,-1,0,0,0,-1--1--1,0-0-0,|12||0-0-255
+12,8,48,659,156,10,8,0,3,0,0,-1,0,0,0
+1,9,11,8,4,0,0,22,0,0,0,-1--1--1,,1|(607,152)|
+11,11,48,559,152,6,8,34,3,0,0,1,0,0,0
+10,12,tasa muertes presas,559,176,78,16,40,131,0,2,-1,0,0,0,-1--1--1,0-0-0,|12||0-128-0
+10,13,fracción muertes presas,686,257,53,19,8,131,0,3,0,0,0,0,0-128-0,0-0-0,|12||0-128-0
+10,14,fracción nacimientos presas,148,264,91,15,8,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||255-0-255
+10,15,presa capturada por depredador,427,310,109,15,8,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||255-128-0
+10,16,DEPREDADORES,422,357,67,17,3,131,0,6,0,0,0,0,-1--1--1,255-255-128,|12||128-0-0
+12,17,48,139,350,10,8,0,3,0,0,-1,0,0,0
+1,18,20,16,4,0,0,22,0,0,0,-1--1--1,,1|(299,349)|
+1,19,20,17,100,0,0,22,0,0,0,-1--1--1,,1|(190,349)|
+11,20,48,237,349,6,8,34,3,0,0,1,0,0,0
+10,21,tasa nacimientos depredadores,237,374,96,17,40,131,0,2,-1,0,0,0,-1--1--1,0-0-0,|12||128-0-0
+12,23,48,683,355,10,8,0,3,0,0,-1,0,0,0
+1,24,26,23,4,0,0,22,0,0,0,-1--1--1,,1|(634,356)|
+11,26,48,589,356,6,8,34,3,0,0,1,0,0,0
+10,27,tasa muertes depredadores,589,380,88,16,40,131,0,2,-1,0,0,0,-1--1--1,0-0-0,|12||255-0-0
+1,28,14,5,1,0,0,0,3,64,0,255-0-255,|12||0-0-0,1|(109,205)|
+1,29,1,6,1,0,0,0,3,64,0,255-0-255,|12||0-0-0,1|(340,220)|
+1,30,1,12,1,0,0,0,3,64,0,0-128-0,|12||0-0-0,1|(458,207)|
+1,31,13,11,1,0,0,0,3,64,0,0-128-0,|12||0-0-0,1|(697,175)|
+1,32,15,13,1,0,0,0,3,64,0,255-128-0,|12||0-0-0,1|(561,228)|
+1,33,16,13,1,0,0,0,3,64,0,255-128-0,|12||0-0-0,1|(587,319)|
+10,34,fracción nacimientos depredadores,137,433,111,14,8,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||128-0-0
+1,35,34,20,1,0,0,0,3,64,0,128-0-0,|12||0-0-0,1|(113,368)|
+1,36,1,34,1,0,0,0,3,64,0,0-128-255,|12||0-0-0,1|(151,270)|
+10,37,fracción muertes depredadores,567,455,102,16,8,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||255-0-0
+1,38,37,27,1,0,0,0,3,64,0,255-0-0,|12||0-0-0,1|(640,420)|
+1,39,16,21,1,0,0,0,3,64,0,128-0-0,|12||0-0-0,1|(334,407)|
+1,40,16,27,1,0,0,0,3,64,0,255-0-0,|12||0-0-0,1|(535,419)|
+10,41,depredador nacido por presa,345,485,97,16,8,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||0-128-255
+1,42,41,34,1,0,0,0,3,64,0,0-128-255,|12||0-0-0,1|(215,479)|
+1,43,11,1,100,0,0,22,0,0,0,-1--1--1,,1|(503,152)|
+1,44,26,16,100,0,0,22,0,0,0,-1--1--1,,1|(536,356)|
+///---\\\
+:L<%^E!@
+1:Current.vdf
+9:Current
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:0,
+34:0,
+4:Time
+5:tasa muertes depredadores
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+42:1
+24:0
+25:10.6
+26:10.6
